@@ -42,6 +42,10 @@ class Main {
 							case DecafLexer.HEXADECIMAL:
 								type = " HEXADECIMAL";
 								break;
+							
+							case DecafLexer.RESERVADOS:
+								type = " TOKENS";
+								break;
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
