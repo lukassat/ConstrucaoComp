@@ -38,6 +38,10 @@ class Main {
 							case DecafLexer.CHARLITERAL:
 								type = " CHARLITERAL";
 								break;
+
+							case DecafLexer.HEXADECIMAL:
+								type = " HEXADECIMAL";
+								break;
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
