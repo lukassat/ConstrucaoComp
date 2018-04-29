@@ -59,17 +59,17 @@ ENQUANTO : 'enquanto';
 FACA : 'faca';
 
 
-RESERVADOS: 'boolean'|'callout'|'class'|'else'|'false'|'if'|'int'|'return'|'true'|'void'|'for'|'forpar'|'break'|'continue';
+RESERVADOS: 'boolean'|'callout'|'class'|'else'|'false'|'if'|'int'|'return'|'true'|'void'|'for'|'break'|'continue';
 
 
 CHARLITERAL: '\''(ESC|CHAR|ESPECIAL)'\'';
-ESPECIAL: '#'|'$'|'&'|'.'|':'|'?'|'@'|'_'|'`'|'|'|'~';
-HEXA: '0x'('0'..'9'|'a'..'f'|'A'..'F')+;
-DIGITO: [0-9]+;
+ESPECIAL: '#'|'$'|'&'|':'|'?'|'@'|'_'|'`'|'|'|'~';
+HEXA: '0x'(TESTE|'a'..'f'|'A'..'F')+;
+DIGITO: [0-9]*;
 
-ID:
-  ('a'..'z' | 'A'..'Z' | DIGITO)+;
+ID: [_a-zA-Z][0-9_a-zA-Z]*;
 
+TESTE: '0'..'9';
 
 WS_: (' ' | '\n' ) -> skip;
 
@@ -79,7 +79,7 @@ COMETARIO : '//' (~'\n')* '\n' -> skip;
 STRING : '"' (ESC~'"')* '"';
 
 
-fragment ESC :  '\\' ( 'r' | 'n' | 't' | '\'' | '"' | 'p' | '\\');
+fragment ESC :  '\\' ( 'r' | 'n' | 't' | '\'' | '"' |  '\\');
 
-fragment CHAR:('a'..'z'|'A'..'Z'|'0'..'9');
+fragment CHAR:('a'..'z'|'A'..'Z'|TESTE);
 

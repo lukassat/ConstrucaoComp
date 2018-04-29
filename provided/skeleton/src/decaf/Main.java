@@ -2,9 +2,18 @@ package decaf;
 
 import java.io.*;
 //import antlr.Token;
+import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.gui.TreeViewer;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 import java6035.tools.CLI.*;
 
 class Main {
@@ -39,8 +48,12 @@ class Main {
 								type = " CHARLITERAL";
 								break;
 
-							case DecafLexer.HEXADECIMAL:
-								type = " HEXADECIMAL";
+							case DecafLexer.HEXA:
+								type = " INTLITERAL";
+								break;
+							
+							case DecafLexer.DIGITO:
+								type = " INTLITERAL";
 								break;
 							
 							case DecafLexer.RESERVADOS:
@@ -63,6 +76,26 @@ class Main {
 				CommonTokenStream tokens = new CommonTokenStream(lexer);
         		DecafParser parser = new DecafParser(tokens);
                 parser.program();
+
+                ParseTree tree = parser.program();
+
+                if (CLI.debug) {
+                    
+                    System.out.println(tree.toStringTree(parser));
+
+                    //show AST in GUI
+                    JFrame frame = new JFrame("Antlr AST");
+                    JPanel panel = new JPanel();
+                    TreeViewer viewr = new TreeViewer(Arrays.asList(
+                            parser.getRuleNames()),tree);
+                    viewr.setScale(1.5);//scale a little
+                    panel.add(viewr);
+                    frame.add(panel);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setSize(200,200);
+                    frame.setVisible(true);
+                }
+
         	}
         	
         } catch(Exception e) {
