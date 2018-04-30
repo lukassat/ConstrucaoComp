@@ -50,7 +50,7 @@ SE : 'if';
 FALSO : 'false';
 INT : 'int';
 RETORNO : 'return';
-VERDADE : 'true';
+VERDADE: 'true';
 VOID: 'void';
 PARA : 'for';
 BREAK : 'break';
@@ -61,19 +61,23 @@ FACA : 'faca';
 
 RESERVADOS: 'boolean'|'callout'|'class'|'else'|'false'|'if'|'int'|'return'|'true'|'void'|'for'|'break'|'continue';
 
+STRINGLITERAL: '"' (ESC|CHAR|FACA|ENQUANTO|CONTINUE|BREAK|PARA|VOID|VERDADE|RETORNO|INT|FALSO|SE|ELSE|CS|CL|BL|PG|ATRIBUICAO|DECREMENTO|INCREMENTO|MENORIG|MAIORIG|MENOR|MAIOR|DIFERENTE|IGUALDADE|OR|AND|EXCL|REST|EXP|SUM|SUB|DIV|MULT|VIRGULA|PONTOVIR|RBRACKET|LBRACKET|RPARENT|LPARENT|RCURLY|LCURLY|'\\'|~('"'))*'"';
 
 CHARLITERAL: '\''(ESC|CHAR|ESPECIAL)'\'';
+
+
 ESPECIAL: '#'|'$'|'&'|':'|'?'|'@'|'_'|'`'|'|'|'~';
-HEXA: '0x'(TESTE|'a'..'f'|'A'..'F')+;
-DIGITO: [0-9]*;
+HEXA: '0x'(DIGITO|'a'..'f'|'A'..'F')+;
+DIGITO: [0-9];
 
-ID: [_a-zA-Z][0-9_a-zA-Z]*;
 
-TESTE: '0'..'9';
+ID: ('_' | CHAR)('_'| CHAR |DIGITO)*;
 
-WS_: (' ' | '\n' ) -> skip;
 
-COMETARIO : '//' (~'\n')* '\n' -> skip;
+WS_: (' ' | '\n'|'\t') -> skip;
+
+
+COMENTARIO : '//' (~'\n')* '\n' -> skip;
 
 
 STRING : '"' (ESC~'"')* '"';
@@ -81,5 +85,6 @@ STRING : '"' (ESC~'"')* '"';
 
 fragment ESC :  '\\' ( 'r' | 'n' | 't' | '\'' | '"' |  '\\');
 
-fragment CHAR:('a'..'z'|'A'..'Z'|TESTE);
+fragment CHAR:('a'..'z'|'A'..'Z'|'0'..'9');
+
 
