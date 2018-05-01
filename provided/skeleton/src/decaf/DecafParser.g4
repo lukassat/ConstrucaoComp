@@ -1,3 +1,4 @@
+
 parser grammar DecafParser;
 
 @header {
@@ -10,7 +11,9 @@ options
   tokenVocab=DecafLexer;
 }
 
-program: TK_class LCURLY field_decl*method_decl*RCURLY;
+program: CS PG corpo_classe;
+
+corpo_classe: LCURLY  field_decl* method_decl* RCURLY ;
 
 field_decl: type ID (VIRGULA par)* PONTOVIR|type ID LBRACKET int_literal RBRACKET (VIRGULA par LBRACKET int_literal RBRACKET)* PONTOVIR;
 
@@ -19,8 +22,6 @@ method_decl: (type| VOID) ID LPARENT(par(VIRGULA par)*)? RPARENT block;
 par:type ID;
 
 block:LCURLY (var)* (statement)* RCURLY;
-
-
 
 var: type ID (variaveis)*PONTOVIR;
 variaveis: VIRGULA ID;
@@ -31,9 +32,9 @@ statement:location assign_op expr PONTOVIR
 		|method_call PONTOVIR
 		|SE LPARENT expr RPARENT block (ELSE block)?
 		|PARA ID assign_op expr VIRGULA expr block
-		|RT (expr)? PONTOVIR
+		|RETORNO (expr)? PONTOVIR
 		|BREAK PONTOVIR
-		|CTN PONTOVIR
+		|CONTINUE PONTOVIR
 		|block;
 
 assign_op:ATRIBUICAO
@@ -55,25 +56,24 @@ expr: location|method_call
       | EXCL expr
       |LPARENT expr RPARENT;
 
-
+bin_op: op_arit
+        |op_comp
+        |op_igual_dif
+        |op_log;
 
 call_arg: expr|string_literal;
-
-bin_op: ar
-        |rel
-        |eq
-        |cond;
-
-ar:MULT|DIV|SUB|SUM|REST|EXP;
-rel: MAIOR|MENOR|MAIORIG|MENORIG;
-eq: IGUALDADE|DIFERENTE;
-cond: AND|OR;
 
 literal: int_literal|char_literal|bool_literal;
 
 int_literal: dec|hex;
 dec: DIGITO;
 hex: HEXA;
-bool_literal: VD|FL;
+bool_literal: VERDADEIRO|FALSO;
 char_literal: CHARLITERAL;
 string_literal: STRINGLITERAL;
+
+
+op_arit:MULT|DIV|SUB|SUM|REST|EXP;
+op_comp: MAIOR|MENOR|MAIORIG|MENORIG;
+op_igual_dif:IGUALDADE|DIFERENTE;
+op_log: AND|OR;
