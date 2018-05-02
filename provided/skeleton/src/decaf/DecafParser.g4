@@ -15,7 +15,11 @@ program: CS PG corpo_classe;
 
 corpo_classe: LCURLY  field_decl* method_decl* RCURLY ;
 
-field_decl: type ID (VIRGULA par)* PONTOVIR|type ID LBRACKET int_literal RBRACKET (VIRGULA par LBRACKET int_literal RBRACKET)* PONTOVIR;
+field: type ID | type ID LBRACKET int_literal RBRACKET;
+
+field_decl: field (field VIRGULA) * PONTOVIR;
+
+//field_decl: type ID (VIRGULA par)* PONTOVIR|type ID LBRACKET int_literal RBRACKET (VIRGULA par LBRACKET int_literal RBRACKET)* PONTOVIR;
 
 method_decl: (type| VOID) ID LPARENT(par(VIRGULA par)*)? RPARENT block;
 
