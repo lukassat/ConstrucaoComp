@@ -66,7 +66,7 @@ HEXA : '0x'('0'..'9'|'a'..'f'|'A'..'F')+;
 DIGITO: [0-9]+;
 
 
-I: ('_'| CHARC)('_'|CHARC|DIGITO)*;
+ID: ('_'| CHARC)('_'|CHARC|DIGITO)*;
 WS_ : (' ' | '\n'|'\t') -> skip;
 
 COMENTARIO : '//' (~'\n')* '\n' -> skip;
