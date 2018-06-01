@@ -31,10 +31,10 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
     }
 
    // @Override
-    public void enterMethod_decl(DecafParser.method_decl ctx) {
+    public void enterMethod_decl(DecafParser.Method_declContext ctx) {
         String name = ctx.ID().getText();
-        int typeTokenType = ctx.type().start.getType();
-        DecafSymbol.Type type = this.getType(typeTokenType);
+        //int typeTokenType = ctx.type().start.getType();
+        //DecafSymbol.Type type = this.getType(typeTokenType);
 
         // push new scope by making new one that points to enclosing scope
         FunctionSymbol function = new FunctionSymbol(name);
@@ -63,12 +63,12 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
     }
 
     //@Override
-    public void enterField_decl(DecafParser.Field_decl ctx) {
+    public void enterField_decl(DecafParser.Field_declContext ctx) {
         defineVar(ctx.type(), ctx.ID().getSymbol());
     }
 
    // @Override
-    public void exitField_decl(DecafParser.Field_decl ctx) {
+    public void exitField_decl(DecafParser.Field_declContext ctx) {
         String name = ctx.ID().getSymbol().getText();
         Symbol var = currentScope.resolve(name);
         if ( var==null ) {
@@ -88,6 +88,7 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
 
         currentScope.define(var); // Define symbol in current scope
     }
+    
 
     /**
      * Método que atuliza o escopo para o atual e imprime o valor
