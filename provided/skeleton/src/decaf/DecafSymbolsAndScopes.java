@@ -89,6 +89,157 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
         currentScope.define(var); // Define symbol in current scope
     }
     
+    @Override
+    public void enterType(DecafParser.TypeContext ctx) {
+    }
+
+    @Override
+    public void exitType(DecafParser.TypeContext ctx) {
+    }
+
+    @Override
+    public void enterStatement(DecafParser.StatementContext ctx) {
+    }
+
+    @Override
+    public void exitStatement(DecafParser.StatementContext ctx) {
+    }
+
+    @Override
+    public void enterMethod_call(DecafParser.Method_callContext ctx) {
+    }
+
+    @Override
+    public void exitMethod_call(DecafParser.Method_callContext ctx) {
+    }
+
+    @Override
+    public void enterLocation(DecafParser.LocationContext ctx) {
+    }
+
+    @Override
+    public void exitLocation(DecafParser.LocationContext ctx) {
+    }
+
+    @Override
+    public void enterExpr(DecafParser.ExprContext ctx) {
+    }
+
+    @Override
+    public void exitExpr(DecafParser.ExprContext ctx) {
+    }
+
+    @Override
+    public void enterMethod_name(DecafParser.Method_nameContext ctx) {
+    }
+
+    @Override
+    public void exitMethod_name(DecafParser.Method_nameContext ctx) {
+    }
+
+    @Override
+    public void enterCall_arg(DecafParser.Call_argContext ctx) {
+    }
+
+    @Override
+    public void exitCall_arg(DecafParser.Call_argContext ctx) {
+    }
+
+    @Override
+    public void enterBin_op(DecafParser.Bin_opContext ctx) {
+    }
+
+    @Override
+    public void exitBin_op(DecafParser.Bin_opContext ctx) {
+    }
+
+    @Override
+    public void enterOp_arit(DecafParser.Op_aritContext ctx) {
+    }
+
+    @Override
+    public void exitOp_arit(DecafParser.Op_aritContext ctx) {
+    }
+
+    @Override
+    public void enterOp_comp(DecafParser.Op_compContext ctx) {
+    }
+
+    @Override
+    public void exitOp_comp(DecafParser.Op_compContext ctx) {
+    }
+
+    @Override
+    public void enterOp_igual_dif(DecafParser.Op_igual_difContext ctx) {
+    }
+
+    @Override
+    public void exitOp_igual_dif(DecafParser.Op_igual_difContext ctx) {
+    }
+
+    @Override
+    public void enterOp_log(DecafParser.Op_logContext ctx) {
+    }
+
+    @Override
+    public void exitOp_log(DecafParser.Op_logContext ctx) {
+    }
+
+    @Override
+    public void enterLiteral(DecafParser.LiteralContext ctx) {
+    }
+
+    @Override
+    public void exitLiteral(DecafParser.LiteralContext ctx) {
+    }
+
+    @Override
+    public void enterInt_literal(DecafParser.Int_literalContext ctx) {
+    }
+
+    @Override
+    public void exitInt_literal(DecafParser.Int_literalContext ctx) {
+    }
+
+    @Override
+    public void enterDec(DecafParser.DecContext ctx) {
+    }
+
+    @Override
+    public void exitDec(DecafParser.DecContext ctx) {
+    }
+
+    @Override
+    public void enterHex(DecafParser.HexContext ctx) {
+    }
+
+    @Override
+    public void exitHex(DecafParser.HexContext ctx) {
+    }
+
+    @Override
+    public void enterBool_literal(DecafParser.Bool_literalContext ctx) {
+    }
+
+    @Override
+    public void exitBool_literal(DecafParser.Bool_literalContext ctx) {
+    }
+
+    @Override
+    public void enterChar_literal(DecafParser.Char_literalContext ctx) {
+    }
+
+    @Override
+    public void exitChar_literal(DecafParser.Char_literalContext ctx) {
+    }
+
+    @Override
+    public void enterString_literal(DecafParser.String_literalContext ctx) {
+    }
+
+    @Override
+    public void exitString_literal(DecafParser.String_literalContext ctx) {
+    }
 
     /**
      * Método que atuliza o escopo para o atual e imprime o valor
