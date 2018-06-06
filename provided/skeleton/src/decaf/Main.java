@@ -64,17 +64,7 @@ class Main {
 							case DecafLexer.DIGITO:
 								type = " INTLITERAL";
 								break;
-							
-							// case DecafLexer.RESERVADOS:
-							// 	type = " TOKENS";
-							// 	break;
-                            //                             case DecafLexer.FALSO:
-							// type = " BOOLEANLITERAL";
-                            //                             break;
-                            //                             case DecafLexer.VERDADEIRO:
-							// type = " BOOLEANLITERAL";
-                            //                             break;
-                                                         
+						                                                            
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
@@ -159,7 +149,7 @@ class Main {
         	
         } catch(Exception e) {
         	// print the error:
-            System.out.println(CLI.infile+" "+e);
+            System.out.println(CLI.infile+""+e);
         }
     }
 }
