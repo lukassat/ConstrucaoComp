@@ -59,7 +59,7 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
 
    // @Override
     public void exitBlock(DecafParser.BlockContext ctx) {
-        popScope();
+        // popScope();
     }
 
     //@Override
@@ -110,6 +110,15 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
         }
 
 }
+
+    @Override
+    public void enterAssign_op(DecafParser.Assign_opContext ctx) {
+
+    }
+
+    @Override
+    public void exitAssign_op(DecafParser.Assign_opContext ctx) {
+    }
 
 /**/
 
